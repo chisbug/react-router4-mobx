@@ -1,8 +1,5 @@
 import React, { Component } from 'react'
-import {
-  Route,
-  Link
-} from 'react-router-dom'
+import { Route, Link } from 'react-router-dom'
 import { observer, inject } from 'mobx-react'
 
 import css from './info.less'
