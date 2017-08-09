@@ -1,5 +1,11 @@
 # react-router4-mobx
-react-router: 4.1.2   |   mobx: 3.2.1   |   mobx-react: 4.2.2   |   webpack: 2.2.1
+基于webpack2配置的react+react-router4+mobx开发环境
+
+### 版本号
+*react-router: 4.1.2
+*mobx: 3.2.1
+*mobx-react: 4.2.2
+*webpack: 2.2.1
 
 #### 开发: 
 1.  **npm install** 
