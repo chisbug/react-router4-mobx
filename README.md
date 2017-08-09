@@ -1,6 +1,9 @@
 # react-router4-mobx
 基于webpack2配置的react+react-router4+mobx开发环境
 
+### 基于bundle-loader实现了按需加载, 具体参见src/components/app.jsx
+
+
 #### 开发: 
 1.  **npm install** 
 2.  **npm run dev** 
@@ -9,7 +12,9 @@
 #### 打包:
 1.  **npm run build** 
 
-##### 版本号
+
+
+##### 版本号:
 * react-router: 4.1.2
 * mobx: 3.2.1
 * mobx-react: 4.2.2
