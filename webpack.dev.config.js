@@ -26,7 +26,8 @@ module.exports = {
     */
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/'
+    publicPath: '/',
+    chunkFilename: '[name]-[id].[chunkhash:8].bundle.js'
   },
   /*
     基础目录，绝对路径，用于从配置中解析入口起点(entry point)和加载器(loader)

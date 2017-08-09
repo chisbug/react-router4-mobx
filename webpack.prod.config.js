@@ -17,7 +17,8 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash].js',
     publicPath: '',
-    sourceMapFilename: '[file].map'
+    sourceMapFilename: '[file].map',
+    chunkFilename: '[name]-[id].[chunkhash:8].bundle.js'
   },
   context: path.resolve(__dirname, 'src'),
   module: {
