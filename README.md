@@ -28,6 +28,7 @@
 
 
 ##### 版本号:
+* react: 15.4.2
 * react-router: 4.1.2
 * mobx: 3.2.1
 * mobx-react: 4.2.2
