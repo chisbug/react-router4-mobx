@@ -1,4 +1,12 @@
-import react, { Component } from 'react'
+/*
+  AsynComponent为高阶组件:
+    接收一个普通的同步组件
+    经过Bundle组件的包裹变成异步组件并返回
+    (这里要注意props必须传入组件, 否则会导致组件不能响应地更新渲染)
+  
+  <Route>中使用AsynComponent来包装普通组件为异步组件
+*/
+import React, { Component } from 'react'
 
 class Bundle extends Component {
   state = {
@@ -26,4 +34,10 @@ class Bundle extends Component {
   }
 }
 
-export default Bundle
+const AsynComponent = (Component, props) => (
+  <Bundle load={Component}>
+    { (Component) => <Component {...props} /> }
+  </Bundle>
+)
+
+export default AsynComponent
