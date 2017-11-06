@@ -46,6 +46,7 @@ module.exports = {
     /*
       hot: 启用 webpack 的模块热替换特性
       host: 配置可被外部通过ip地址访问
+      quiet: 配置webpack-dashboard所需
       contentBase: 输出文件的路径, 用于确定应该从哪里提供 bundle
       publicPath: 和上文 output 的“publicPath”值保持一致
     */
