@@ -4,7 +4,14 @@
 const path = require('path');
 const webpack = require('webpack');
 const WebWebpackPlugin = require('web-webpack-plugin');
-const { WebPlugin, AutoWebPlugin } = WebWebpackPlugin;
+const {
+  WebPlugin,
+  AutoWebPlugin
+} = WebWebpackPlugin;
+const Dashboard = require('webpack-dashboard');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+
+const dashboard = new Dashboard();
 
 module.exports = {
   entry: [
@@ -14,6 +21,7 @@ module.exports = {
       为热替换(HMR)打包好代码
       only- 意味着只有成功更新运行代码才会执行热替换(HMR)
     */
+    'babel-polyfill',
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://0.0.0.0:8080',
     'webpack/hot/only-dev-server',
@@ -43,14 +51,14 @@ module.exports = {
     */
     hot: true,
     host: '0.0.0.0',
+    quiet: true,
     contentBase: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     // disableHostCheck: true,
     // headers: { 'Access-Control-Allow-Origin': '*' }
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.(js|jsx)$/,
         use: [
           'babel-loader',
@@ -59,21 +67,21 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [ 
-          'style-loader', 
-          'css-loader?minimize' 
+        use: [
+          'style-loader',
+          'css-loader?minimize'
         ]
       },
       {
         test: /\.less$/,
         use: [
           'style-loader',
-          { 
-            loader: 'css-loader', 
-            options: { 
+          {
+            loader: 'css-loader',
+            options: {
               importLoaders: 1,
               minimize: false
-            } 
+            }
           },
           'less-loader'
         ]
@@ -95,8 +103,9 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      Actions: path.resolve(__dirname, 'src/actions'),
-      Static: path.resolve(__dirname, 'static')
+      Static: path.resolve(__dirname, 'static'),
+      Co: path.resolve(__dirname, 'src/components'),
+      Src: path.resolve(__dirname, 'src')
     }
   },
   plugins: [
@@ -112,6 +121,7 @@ module.exports = {
       filename: 'index.html',
       requires: ['main'],
       template: './src/index.html'
-    })
+    }),
+    new DashboardPlugin(dashboard.setData)
   ]
 };
